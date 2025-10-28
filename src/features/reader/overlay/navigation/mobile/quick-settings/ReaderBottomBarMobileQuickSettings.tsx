@@ -15,7 +15,11 @@ import { ReaderService } from '@/features/reader/services/ReaderService.ts';
 import { DefaultSettingFootnote } from '@/features/reader/settings/components/DefaultSettingFootnote.tsx';
 import { ReaderSettingAutoScroll } from '@/features/reader/auto-scroll/settings/ReaderSettingAutoScroll.tsx';
 import { CheckboxInput } from '@/base/components/inputs/CheckboxInput.tsx';
-import { useReaderAutoScrollStore, useReaderSettingsStore } from '@/features/reader/stores/ReaderStore.ts';
+import {
+    useReaderAutoScrollStore,
+    useReaderSettingsStore,
+    useReaderTranslatorStore,
+} from '@/features/reader/stores/ReaderStore.ts';
 
 const BaseReaderBottomBarMobileQuickSettings = () => {
     const { t } = useTranslation();
@@ -27,6 +31,10 @@ const BaseReaderBottomBarMobileQuickSettings = () => {
         readingMode: state.settings.readingMode,
         readingDirection: state.settings.readingDirection,
         autoScroll: state.settings.autoScroll,
+    }));
+    const { isTranslatorEnabled, setTranslatorEnabled } = useReaderTranslatorStore((state) => ({
+        isTranslatorEnabled: state.translator.isEnabled,
+        setTranslatorEnabled: state.translator.setIsEnabled,
     }));
 
     return (
@@ -48,6 +56,11 @@ const BaseReaderBottomBarMobileQuickSettings = () => {
                 label={t('reader.settings.auto_scroll.title')}
                 checked={isActive}
                 onChange={() => toggleActive()}
+            />
+            <CheckboxInput
+                label={t('reader.settings.label.translator')}
+                checked={isTranslatorEnabled}
+                onChange={(_, checked) => setTranslatorEnabled(checked)}
             />
             <ReaderSettingAutoScroll
                 autoScroll={autoScroll}

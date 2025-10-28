@@ -19,6 +19,7 @@ import { ReaderNavBarDesktopProps } from '@/features/reader/overlay/ReaderOverla
 import { ReaderService } from '@/features/reader/services/ReaderService.ts';
 import { ReaderNavBarDesktopAutoScroll } from '@/features/reader/auto-scroll/settings/quick-setting/ReaderNavBarDesktopAutoScroll.tsx';
 import { useReaderSettingsStore } from '@/features/reader/stores/ReaderStore.ts';
+import { ReaderNavBarDesktopTranslatorToggle } from '@/features/reader/translator/components/ReaderNavBarDesktopTranslatorToggle.tsx';
 
 const BaseReaderNavBarDesktopQuickSettings = ({ openSettings }: Pick<ReaderNavBarDesktopProps, 'openSettings'>) => {
     const { t } = useTranslation();
@@ -64,6 +65,7 @@ const BaseReaderNavBarDesktopQuickSettings = ({ openSettings }: Pick<ReaderNavBa
                 autoScroll={autoScroll}
                 setAutoScroll={(...args) => ReaderService.updateSetting('autoScroll', ...args)}
             />
+            <ReaderNavBarDesktopTranslatorToggle />
             <Button
                 onClick={() => openSettings()}
                 size="large"

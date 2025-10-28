@@ -31,6 +31,10 @@ import {
 } from '@/features/reader/tap-zones/ReaderTapZoneStore.tsx';
 import { createReaderPagesStoreSlice, ReaderPagesStoreSlice } from '@/features/reader/stores/ReaderPagesStore.ts';
 import {
+    createReaderTranslatorStoreSlice,
+    ReaderTranslatorStoreSlice,
+} from '@/features/reader/translator/ReaderTranslatorStore.ts';
+import {
     createReaderChaptersStoreSlice,
     ReaderChaptersStoreSlice,
 } from '@/features/reader/stores/ReaderChaptersStore.ts';
@@ -44,7 +48,8 @@ interface ReaderStore
         ReaderPagesStoreSlice,
         ReaderChaptersStoreSlice,
         ReaderProgressBarStoreSlice,
-        ReaderTapZoneStoreSlice {
+        ReaderTapZoneStoreSlice,
+        ReaderTranslatorStoreSlice {
     reset: () => void;
     manga: TMangaReader | undefined;
     setManga: (manga: TMangaReader | undefined) => void;
@@ -95,6 +100,7 @@ const readerStore = create<ReaderStore>()(
                             ...get().chapters.reset(),
                             ...get().progressBar.reset(),
                             ...get().tapZone.reset(),
+                            ...get().translator.reset(),
                         }),
                         undefined,
                         createActionName('reset'),
@@ -146,6 +152,7 @@ const readerStore = create<ReaderStore>()(
                 ...createReaderChaptersStoreSlice(createActionNameCreator('chapters'), set, get, store),
                 ...createReaderProgressBarStoreSlice(createActionNameCreator('progressBar'), set, get, store),
                 ...createReaderTapZoneStoreSlice(createActionNameCreator('tapZone'), set, get, store),
+                ...createReaderTranslatorStoreSlice(createActionNameCreator('translator'), set, get, store),
             };
         }),
         {
@@ -189,3 +196,6 @@ export const getReaderProgressBarStore = () => readerStore.getState().progressBa
 
 export const useReaderTapZoneStore = useReaderStore;
 export const getReaderTapZoneStore = () => readerStore.getState().tapZone;
+
+export const useReaderTranslatorStore = useReaderStore;
+export const getReaderTranslatorStore = () => readerStore.getState().translator;

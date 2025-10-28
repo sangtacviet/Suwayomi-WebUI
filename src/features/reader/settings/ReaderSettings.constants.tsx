@@ -324,6 +324,7 @@ export enum ReaderSettingTab {
     FILTER,
     BEHAVIOUR,
     HOTKEYS,
+    TRANSLATOR,
 }
 
 export const READER_SETTING_TABS: Record<
@@ -358,6 +359,11 @@ export const READER_SETTING_TABS: Record<
         id: ReaderSettingTab.HOTKEYS,
         label: 'hotkeys.title_other',
         supportsTouchDevices: false,
+    },
+    [ReaderSettingTab.TRANSLATOR]: {
+        id: ReaderSettingTab.TRANSLATOR,
+        label: 'reader.settings.label.translator',
+        supportsTouchDevices: true,
     },
 };
 

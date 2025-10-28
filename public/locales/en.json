@@ -1018,7 +1018,8 @@
         "skip_dup_chapters": "Skip duplicate chapters",
         "skip_filtered_chapters": "Skip filtered chapters",
         "static_navigation": "Static navigation",
-        "unchangeable_in_reader": "Setting can not be changed while the reader is opened"
+        "unchangeable_in_reader": "Setting can not be changed while the reader is opened",
+        "translator": "Translator"
       },
       "overlay_mode": "Overlay mode",
       "page_scale": {

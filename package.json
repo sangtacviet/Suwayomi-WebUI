@@ -27,9 +27,6 @@
     "dayjs:gen-locales": "yarn dayjs:gen-locales-array && yarn dayjs:gen-locales-import",
     "prepare": "husky"
   },
-  "engines": {
-    "node": "22.12.0"
-  },
   "lint-staged": {
     "*.{ts,tsx,js,jsx}": "eslint --fix"
   },
@@ -45,7 +42,7 @@
     "@loadable/component": "5.16.7",
     "@mantine/hooks": "8.2.5",
     "@mui/icons-material": "7.3.1",
-    "@mui/material": "7.3.1",
+    "@mui/material": "^7.3.4",
     "@mui/system": "7.3.1",
     "@mui/utils": "7.3.1",
     "@mui/x-date-pickers": "8.10.0",

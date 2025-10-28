@@ -7,3 +7,6 @@ node_modules/
 build/*
 
 src/lib/graphql/schema.json
+
+stvmangatranslator.js
+comictranslator.php

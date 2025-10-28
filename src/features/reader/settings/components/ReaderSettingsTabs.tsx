@@ -20,6 +20,7 @@ import { ReaderLayoutSettings } from '@/features/reader/settings/layout/ReaderLa
 import { ReaderGeneralSettings } from '@/features/reader/settings/general/ReaderGeneralSettings.tsx';
 import { ReaderFilterSettings } from '@/features/reader/filters/settings/ReaderFilterSettings.tsx';
 import { ReaderBehaviourSettings } from '@/features/reader/settings/behaviour/ReaderBehaviourSettings.tsx';
+import { ReaderTranslatorSettings } from '@/features/reader/settings/translator/ReaderTranslatorSettings.tsx';
 import { ReaderDefaultLayoutSettings } from '@/features/reader/settings/layout/ReaderDefaultLayoutSettings.tsx';
 import { ReaderHotkeysSettings } from '@/features/reader/hotkeys/settings/ReaderHotkeysSettings.tsx';
 import { withPropsFrom } from '@/base/hoc/withPropsFrom.tsx';
@@ -168,6 +169,22 @@ const BaseReaderSettingsTabs = ({
                                     sx={{ p: areDefaultSettings ? 2 : undefined }}
                                 >
                                     <ReaderHotkeysSettings
+                                        settings={settings}
+                                        updateSetting={(...args) => updateSetting(...args)}
+                                        isDefaultable
+                                        onDefault={(...args) => deleteSetting?.(...args)}
+                                    />
+                                </TabPanel>
+                            );
+                        case ReaderSettingTab.TRANSLATOR:
+                            return (
+                                <TabPanel
+                                    key={id}
+                                    index={id}
+                                    currentIndex={activeTab}
+                                    sx={{ p: areDefaultSettings ? 2 : undefined }}
+                                >
+                                    <ReaderTranslatorSettings
                                         settings={settings}
                                         updateSetting={(...args) => updateSetting(...args)}
                                         isDefaultable

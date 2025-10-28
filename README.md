@@ -45,6 +45,9 @@ Thus, there is no need to manually download any builds unless you want to host t
   - Use predefined themes
   - Create your own themes
   - Dynamic theme on manga pages
+- MTL (Machine Translation of manga)
+  Automatic translation of manga in the reader to english or other languages using sangtacviet.
+  To use this feature, select vertical reading mode as default, when reading, turn on the translator toggle. Best with manhua and webtoons.
 
 ## Preview
 An ongoing changelog of all relevant changes since the last stable release can be found [here](https://github.com/Suwayomi/Suwayomi-WebUI/issues/749)
